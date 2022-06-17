@@ -1,0 +1,65 @@
+{% extends "core/base.html"%}
+{%load static%}
+{% block contenido %}
+<br>
+    <!--empieza el encabezado-->
+      <header>
+
+    </header>
+    <table class="table  table-striped">
+      <thead class="table-dark">
+      <tr>
+        <th>id del producto</th>
+        <th>Nombre del producto</th>
+        <th>stock</th>
+        <th>precio</th>
+        <th>categoria</th>
+        <th>imagen</th>
+        <th>Opciones</th>
+      </tr>
+    </thead>
+    
+    {%for pr in productos%}
+    <tbody>
+    <tr>
+        <td>{{pr.id_producto}}</td>
+        <td>{{pr.nombre_producto}}</td>
+        <td>{{pr.stock}}</td>
+        <td id="precio">${{pr.precio}}</td>
+        <td>{{pr.categoria}}</td>
+        {%if pr.imagen%}
+        <td><img src="{{pr.imagen.url}}" alt="" width="300"></td>
+        <td><a href="{%url 'modificar_producto' pr.id_producto%}">Modificar</a></td>
+        {%endif%}
+    </tr>
+ 
+  </tbody>
+    {%endfor%}
+  
+    </table>
+
+    <script>
+        function contador(){
+            var contar=0;
+            var precio=document.getElementById("precio").value;
+            document.getElementById("mostrar").innerHTML="hola"+precio+(contar+1);
+        }
+    </script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  {%if messages%}
+      {%for m in messages%}
+        <script>
+          Swal.fire({
+            "title":"Felicitaciones",
+            "text" : "{{m}}",
+            "icon":"success"
+          })
+        </script>
+      {%endfor%}
+      {%endif%}
+
+      {% endblock contenido %}

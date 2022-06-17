@@ -1,0 +1,68 @@
+{% extends "core/base.html"%}
+{%load static%}
+{% block contenido %}
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#enviar").click(function(){
+            $.get("https://randomuser.me/api/",
+                function(data){
+                    $.each(data.results,function(i, item){
+                        $("#categorias").append("<tr><td>"+item.gender+"</td><td>"+item.name.title+" "+
+                            item.name.first+" "+item.name.last+
+                            "</td><td>"+item.location.street.number+" "+item.location.street.name+" "+item.location.city+" "
+                            +item.location.country+" "+"</td><td>"+
+                            item.email+"</td><td>"+item.login.username+"</td><td>"+item.login.password+"</td><td>"+item.dob.date+
+                            "</td><td>"+item.dob.age+"</td><td>"+item.registered.date+" "+item.registered.age+"</td><td>"+
+                            item.phone+"</td><td>"+item.cell+"</td><td>"+
+                            item.id.value+item.id.name+"</td><td><img src='"+item.picture.large+"''>"+
+                            "</td><td>"+item.nat+"</td></tr>");
+                    });
+                });
+            });
+        })
+    </script>
+
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <h3>Ejemplo, traer datos asincronicamente </h3>
+        </div>
+        <div class="row">
+            <button type="button" class="btn btn-primary" id="enviar"> traer datos</button>
+        </div>
+        <div>
+            <div class="table-responsive">
+            <table class="table" id="categorias">
+                <thead>
+                    <tr>
+                        
+                        <th scope="col">genero</th>
+                        <th scope="col">nombre</th>
+                        <th scope="col">direccion</th>
+                        <th scope="col">email</th>
+                        <th scope="col">usuario</th>
+                        <th scope="col">clave</th>
+                        <th scope="col">fecha nacimiento</th>
+                        <th scope="col">edad</th>
+                        <th scope="col">registro</th>
+                        <th scope="col">telefono</th>
+                        <th scope="col">celular</th>
+                        <th scope="col">id</th>
+                        <th scope="col">imagen</th>
+                        <th scope="col">nat</th>
+                    </tr>
+                </thead>
+            </table>
+            </div>
+        </div>
+    </div>
+
+
+
+    
+    {% endblock contenido %}

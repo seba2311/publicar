@@ -1,0 +1,22 @@
+{% extends "core/base.html"%}
+{%load static%}
+{% block contenido %}
+
+   
+
+
+
+<div class="margen">
+  <form method="post" id="formulario" class="margen" enctype="multipart/form-data">
+  {% csrf_token %}
+  
+  <div class="row mb-3">
+    {{form.as_table}}
+  </div>
+ 
+  <input type="submit" class="btn btn-danger" id="Registrar" value="Modificar">
+  <input type="reset" class="btn btn-primary" id="limpiar" value="Limpiar">
+ 
+</form>
+
+{% endblock contenido %}

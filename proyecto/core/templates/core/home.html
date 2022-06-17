@@ -1,0 +1,129 @@
+{% extends "core/base.html"%}
+{%load static%}
+{% block contenido %}
+<br>
+
+<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{%static 'core/img/arbusto1.jpg'%}" class="d-block w-100"  height="400">
+      </div>
+      <div class="carousel-item">
+        <img src="{%static 'core/img/macetero5.jpg'%}" class="d-block w-100" height="400">
+      </div>
+      <div class="carousel-item">
+        <img src="{%static 'core/img/arbusto2.png'%}" class="d-block w-100" height="400">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <!--retornar datos de usuario-->
+<div style="display: none;">
+  <table class="table" >
+ 
+    <tbody id="tablaNombres">
+    {% for us in usuarios %}
+    <tr><td>{{us.nombre_usuario}}</td></tr>
+    {% endfor %}
+    </tbody>
+    <tbody id="tablaCorreo">
+      {% for us in usuarios %}
+      <tr><td>{{us.correo}}</td></tr>
+      {% endfor %}
+      </tbody>
+  <tbody id="tablaClaves">
+    {% for us in usuarios %}
+    <tr><td>{{us.clave}}</td></tr>
+    {% endfor %}
+  </tbody>
+  </table>
+ 
+</div>
+<!--retornar datos de usuario-->
+<!--validar datos de usuario-->
+<script>
+  // Definimos el array donde guardaremos los datos...
+  var nombres = [];
+  var claves=[];
+  var correos=[];
+
+  // Obtenemos la variable con las filas de tbody...
+  var rows = document.getElementById('tablaNombres').rows;
+  var rows2 = document.getElementById('tablaClaves').rows;
+  var rows3 = document.getElementById('tablaCorreo').rows;
+
+  // Recorremos las filas y añadimos al array el valor de las celdas con los offset 1 (capítulo) y 3 (porcentaje)...
+  for (var i = 0; i < rows.length; i++) {
+      nombres.push([ rows[i].cells[0].innerHTML]);
+  }
+  for (var i = 0; i < rows2.length; i++) {
+      claves.push([ rows2[i].cells[0].innerHTML]);
+  }
+  for (var i = 0; i < rows3.length; i++) {
+      correos.push([ rows3[i].cells[0].innerHTML]);
+  }
+
+  // Ya tenemos los datos guardados, ahora hacemos lo que queramos con ellos...
+  console.log(nombres);
+  console.log(claves);
+  console.log(correos);
+  function retornarValor(){
+    document.getElementById("valorValido").innerHTML = ""; 
+    let inputNombre = document.getElementById("validarNombre").value;
+    let inputClave =document.getElementById("validarClave").value;
+    var usuarioValidado=false;
+    for (var i=0; i<nombres.length; i++){
+    if(inputNombre==correos[i] && inputClave==claves[i]){
+      usuarioValidado=true;
+    }
+    if(usuarioValidado==true){
+      document.getElementById("valorValido").innerHTML = "bienvenido: "+nombres[i]; 
+      document.getElementById("validarNombre").innerHTML="";
+      document.getElementById("validarClave").innerHTML="";
+      break
+    }
+    }
+  }
+  
+</script>
+<!--validar datos de usuario-->
+
+
+
+
+
+<!--imagenes-->
+<br>
+<center><h1>Galeria</h1></center>
+<div class="margen">
+  
+    <table class="table-responsive margen" >
+
+      <tr>
+        <td class="align-middle"><img class="border border-dark rounded-circle" src="{%static 'core/img/arbusto1.jpg'%}"  height="300" width="300"> </td>
+        <td><img class="border border-dark rounded-circle" src="{%static 'core/img/macetero6.jpg'%}" height="300" width="300"> </td>
+        <td><img class="border border-dark rounded-circle" src="{%static 'core/img/planta5.jpg'%}" height="300" width="300" > </td>
+      </tr>
+    
+    <tr>
+      <td><img class="border border-dark rounded-circle" src="{%static 'core/img/arbusto3.webp'%}" height="300" width="300" > </td>
+      <td><img class="border border-dark rounded-circle" src="{%static 'core/img/planta4.jpg'%}" height="300" width="300" > </td>
+      <td><img class="border border-dark rounded-circle" src="{%static 'core/img/macetero2.jpeg'%}" height="300" width="300" > </td>
+    </tr>
+    </table>
+  
+</div>
+
+
+
+
+
+{% endblock contenido %}

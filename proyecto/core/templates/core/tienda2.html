@@ -1,0 +1,31 @@
+{% extends "core/base.html"%}
+{%load static%}
+{%load crispy_forms_tags%}
+{% block contenido %}
+
+   
+
+   
+
+
+<div class="row">
+<div class="col-12 col-md-6 offset-md-3">
+  <div class="card">
+    <div class="card-body">
+  <form method="post" id="formulario" class="margen" enctype="multipart/form-data">
+  {% csrf_token %}
+  
+  <div class="row mb-3">
+    {{form.as_table}}
+  </div>
+ 
+  <input type="submit" class="btn btn-danger" id="registrar" value="Registrar">
+  <input type="reset" class="btn btn-primary" id="limpiar" value="Limpiar">
+</form>
+
+
+</div>
+</div>
+</div>
+</div>
+{% endblock contenido %}

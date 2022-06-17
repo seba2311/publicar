@@ -1,0 +1,218 @@
+{% extends "core/base.html"%}
+{%load static%}
+{% block contenido %}
+
+  
+
+    <div class="margen">
+
+    <!--empieza el encabezado-->
+      <header>
+        <div class="container">
+            <h1 class="text-center">Tienda</h1>
+            <hr>
+        </div>
+    </header>
+    <!-- Los productos de compra con el arreglo de ventas -->
+    <h1 class="text-center">Nuestras plantas</h1>
+    <section class="store">
+        <div class="container">
+            <div class="items">
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <div class="item shadow mb-4">
+                            <h3 class="item-title">Planta 1</h3>
+                            <!-- <div class="card" style="width: 18rem;" id="margenGaleria"></div> -->
+                            <img class="item-image" src="{%static 'core/img/planta1.jpg'%}" class="d-block w-100" alt="..." height="100">
+                            <h4 class="margenText"><br>Descripcion: Lorem ipsum dolor, 
+                                <br>sit amet consectetur adipisicing elit. 
+                              </h4></p>
+                            <div class="item-details">
+                                <h4 class="item-price">1000</h4>
+                                <button class="item-button btn btn-primary addToCart">Agregar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="item shadow mb-4">
+                            <h3 class="item-title">Planta 2</h3>
+
+                            <img class="item-image" src="{%static 'core/img/planta1.jpg'%}" class="d-block w-100" alt="..." height="100">
+                            <h4 class="margenText"><br>Descripcion: Lorem ipsum dolor, 
+                                <br>sit amet consectetur adipisicing elit. 
+                              </h4></p>
+                            <div class="item-details">
+                                <h4 class="item-price">1000</h4>
+                                <button class="item-button btn btn-primary addToCart">Agregar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <h1 class="text-center">Tierra de hojas</h1>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <div class="item shadow mb-4">
+                            <h3 class="item-title">Tierra de hojas 1</h3>
+
+                            <img class="item-image" src="{%static 'core/img/tierraHoja.jpg'%}" class="d-block w-100" alt="..." height="100">
+                            <h4 class="margenText"><br>Descripcion: Lorem ipsum dolor, 
+                                <br>sit amet consectetur adipisicing elit. 
+                              </h4></p>
+                            <div class="item-details">
+                                <h4 class="item-price">2000</h4>
+                                <button class="item-button btn btn-primary addToCart">Agregar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="item shadow mb-4">
+                            <h3 class="item-title">Tierra de hojas 2</h3>
+                            <img class="item-image" src="{%static 'core/img/tierraHoja.jpg'%}" class="d-block w-100" alt="..." height="100">
+                            <h4 class="margenText"><br>Descripcion: Lorem ipsum dolor, 
+                                <br>sit amet consectetur adipisicing elit. 
+                              </h4></p>
+                            <div class="item-details">
+                                <h4 class="item-price">2000</h4>
+                                <button class="item-button btn btn-primary addToCart">Agregar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h1 class="text-center">Maceteros</h1>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <div class="item shadow mb-4">
+                            <h3 class="item-title">Macetero 1</h3>
+
+                            <img class="item-image" src="{%static 'core/img/macetero1.jpg'%}" class="d-block w-100" alt="..." height="100">
+                            <h4 class="margenText"><br>Descripcion: Lorem ipsum dolor, 
+                                <br>sit amet consectetur adipisicing elit. 
+                              </h4></p>
+                            <div class="item-details">
+                                <h4 class="item-price">3000</h4>
+                                <button class="item-button btn btn-primary addToCart">Agregar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="item shadow mb-4">
+                            <h3 class="item-title">Macetero 2</h3>
+                            <img class="item-image" src="{%static 'core/img/macetero2.jpeg'%}" class="d-block w-100" alt="..." height="100">
+                            <h4 class="margenText"><br>Descripcion: Lorem ipsum dolor, 
+                                <br>sit amet consectetur adipisicing elit. 
+                              </h4></p>
+                            <div class="item-details">
+                                <h4 class="item-price">3000</h4>
+                                <button class="item-button btn btn-primary addToCart">Agregar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Fin de productos a comprar -->
+    <!-- Comienzo del total de ventas y cantidades que se suman -->
+        <section class="shopping-cart">
+        <div class="container">
+            <h1 class="text-center">CARRITO</h1>
+            <hr>
+            <div class="row">
+                <div class="col-6">
+                    <div class="shopping-cart-header">
+                        <h6>Producto</h6>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="shopping-cart-header">
+                        <h6 class="text-truncate" >Precio</h6>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="shopping-cart-header">
+                        <h6>Cantidad</h6>
+                    </div>
+                </div>
+            </div>
+            <!-- Comienza la compra -->
+            <div class="shopping-cart-items shoppingCartItemsContainer">
+            </div>
+        </div>
+            <!-- Fin de la compra en j -->
+
+            <!-- Muestra el total -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="shopping-cart-total d-flex align-items-center">
+                        <p class="mb-0">Total</p>
+                        <p class="ml-4 mb-0 shoppingCartTotal" id="total">0</p>
+                        
+                        <div class="toast ml-auto bg-info" role="alert" aria-live="assertive" aria-atomic="true"
+                            data-delay="2000">
+                            <div class="toast-header">
+                                <span>✅</span>
+                                <strong class="mr-auto ml-1 text-secondary">Elemento en el carrito</strong>
+                                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="toast-body text-white">
+                                Se aumentó correctamente la cantidad
+                            </div>
+                        </div>
+                        <button class="btn btn-success ml-auto comprarButton" type="button" data-toggle="modal"
+                            data-target="#comprarModal">Comprar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fin del total -->
+
+            <!-- Inicia el modo de compra satisfactoria -->
+            <div class="modal fade" id="comprarModal" tabindex="-1" aria-labelledby="comprarModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="comprarModalLabel">Gracias por su compra</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Pronto recibirá su pedido</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Aca termina el mensaje de compra satisfactoria -->
+
+
+        </div>
+
+    </section>
+    <!-- finaliza la linea de compra-->
+
+</div>
+
+
+
+
+
+    <!-- SCRIPTS usados-->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+
+     <!--<script src="./tienda.js"></script>-->
+  
+    {% endblock contenido %}
+
