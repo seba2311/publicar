@@ -1,9 +1,14 @@
+import imp
 from unicodedata import name
 from xml.dom.minidom import Document
 from django.conf import settings
-from django.urls import URLPattern, path
-from .views import home,quienesSomos,registro,tienda,iniciarSesion,tienda2,carrito,modificar_producto,usuarios,base
+from django.urls import URLPattern, path, include
+from .views import home,quienesSomos,registro,tienda,iniciarSesion,tienda2,carrito,modificar_producto,usuarios,base,ProductoViewset
+from rest_framework import routers
 from django.contrib.staticfiles.urls import static
+
+router= routers.DefaultRouter()
+router.register('producto',ProductoViewset)
 
 urlpatterns=[
     path('',home,name="home"),
@@ -15,5 +20,6 @@ urlpatterns=[
     path('carrito/',carrito,name='carrito'),
     path('modificar-producto/<id>/',modificar_producto,name='modificar_producto'),
     path('usuarios',usuarios,name="usuarios"),
-    path('base',base,name='base')
+    path('base',base,name='base'),
+    path('api/',include(router.urls)),
 ]

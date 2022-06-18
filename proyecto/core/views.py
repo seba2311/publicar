@@ -11,6 +11,8 @@ from .forms import UsuarioForm,ProductoForm,CustomUserCreationForm
 from .models import Usuario,Producto
 from django.contrib.auth import authenticate,login
 from django.contrib import messages
+from rest_framework import viewsets
+from .serialazers import ProductoSerialaizer
 
 # Create your views here.
 def home (request):
@@ -101,3 +103,9 @@ def modificar_producto(request, id):
 
 def usuarios(request):
     return render(request, 'core/usuarios.html')
+
+
+
+class ProductoViewset(viewsets.ModelViewSet):
+    queryset=Producto.objects.all()
+    serializer_class=ProductoSerialaizer
