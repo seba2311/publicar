@@ -1,5 +1,7 @@
 from pyexpat import model
 from attr import field
+from click import style
+from colorama import Style
 from django import forms
 from django.forms import ModelForm
 from .models import Usuario, Producto
@@ -19,7 +21,7 @@ class UsuarioForm(ModelForm):
 class ProductoForm(ModelForm):
     class Meta:
         model= Producto
-        fields='__all__'
+        fields=['nombre_producto','stock','descripcion','precio','categoria','imagen']
         
 class CustomUserCreationForm(UserCreationForm):
     class Meta:
