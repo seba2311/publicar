@@ -52,7 +52,7 @@
                   <li><a class="dropdown-item"  aria-current="page" href="{%url 'tienda2'%}">Agregar Producto</a></li>
                   {%endif%}
                   {%if perms.core.view_producto%}
-                  <li><a class="dropdown-item" aria-current="page" href="{%url 'carrito'%}">Lista de productos</a></li>
+                  <li><a class="dropdown-item" aria-current="page" href="{%url 'carrito'%}">Modificar productos</a></li>
                   {%endif%}
                 </ul>
               </li>
@@ -64,7 +64,7 @@
               <a href="{% url 'logout'%}" class="nav-link active">Cerrar sesión</a>
             </li>
             <li class="nav-item">
-              <a href="{%url 'usuarios'%}" class="nav-link active">Listado Usuarios</a>
+              <a href="{%url 'usuarios'%}" class="nav-link active">Listado de productos</a>
             </li>
             <li class="nav-item">
               <a href="" class="nav-link active">@{{user.username}}</a>

@@ -110,3 +110,13 @@ def usuarios(request):
 class ProductoViewset(viewsets.ModelViewSet):
     queryset=Producto.objects.all()
     serializer_class=ProductoSerialaizer
+
+    def get_queryset(self):
+        productos=Producto.objects.all()
+
+        nombre=self.request.GET.get('nombre')
+
+        if nombre:
+            productos= productos.filter(nombre_producto__contains=nombre)
+        
+        return productos
