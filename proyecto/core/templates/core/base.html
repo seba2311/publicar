@@ -48,8 +48,12 @@
                   Productos
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  {%if perms.core.add_producto%}
                   <li><a class="dropdown-item"  aria-current="page" href="{%url 'tienda2'%}">Agregar Producto</a></li>
+                  {%endif%}
+                  {%if perms.core.view_producto%}
                   <li><a class="dropdown-item" aria-current="page" href="{%url 'carrito'%}">Lista de productos</a></li>
+                  {%endif%}
                 </ul>
               </li>
               

@@ -13,7 +13,7 @@ from django.contrib.auth import authenticate,login
 from django.contrib import messages
 from rest_framework import viewsets
 from .serialazers import ProductoSerialaizer
-
+from django.contrib.auth.decorators import login_required, permission_required
 # Create your views here.
 def home (request):
     usuario = Usuario.objects.all()
@@ -40,6 +40,7 @@ def iniciarSesion(request, id):
     }
     return render(request,'core/iniciarSesion.html',datos)
 
+@permission_required('core.add_producto')
 def tienda2(request):
     usuario=Usuario.objects.all()
     producto = Producto.objects.all()
@@ -60,7 +61,7 @@ def tienda2(request):
 
     return render(request,'core/tienda2.html',datos)
     
-    
+@permission_required('core.change_producto')
 def carrito(request):
     producto = Producto.objects.all()
     datos={
