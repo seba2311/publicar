@@ -102,6 +102,11 @@ def modificar_producto(request, id):
     
     return render(request, 'core/modificar.html',data)
 
+def eliminar_producto(request, id):
+    producto=get_object_or_404(Producto, id_producto=id)
+    producto.delete()
+    return redirect(to="carrito")
+
 def usuarios(request):
     return render(request, 'core/usuarios.html')
 

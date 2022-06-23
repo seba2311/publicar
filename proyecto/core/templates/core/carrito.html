@@ -29,7 +29,10 @@
         <td>{{pr.categoria}}</td>
         {%if pr.imagen%}
         <td><img src="{{pr.imagen.url}}" alt="" width="300" height="300"></td>
-        <td><a href="{%url 'modificar_producto' pr.id_producto%}">Modificar</a></td>
+        <td>
+          <a href="{%url 'modificar_producto' pr.id_producto%}" class="btn btn-info btn-sm">Modificar</a>
+          <a href="{%url 'eliminar_producto' pr.id_producto%}" class="btn btn-danger btn-sm">Eliminar</a>
+        </td>
         {%endif%}
     </tr>
  

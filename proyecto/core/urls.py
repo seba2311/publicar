@@ -3,7 +3,7 @@ from unicodedata import name
 from xml.dom.minidom import Document
 from django.conf import settings
 from django.urls import URLPattern, path, include
-from .views import home,quienesSomos,registro,tienda,iniciarSesion,tienda2,carrito,modificar_producto,usuarios,base,ProductoViewset
+from .views import home,quienesSomos,registro,tienda,iniciarSesion,tienda2,carrito,modificar_producto,usuarios,base,ProductoViewset,eliminar_producto
 from rest_framework import routers
 from django.contrib.staticfiles.urls import static
 
@@ -22,4 +22,5 @@ urlpatterns=[
     path('usuarios',usuarios,name="usuarios"),
     path('base',base,name='base'),
     path('api/',include(router.urls)),
+    path('eliminar-producto/<id>/',eliminar_producto,name="eliminar_producto")
 ]
