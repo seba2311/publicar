@@ -19,7 +19,7 @@
       </tr>
     </thead>
     
-    {%for pr in productos%}
+    {%for pr in entity%}
     <tbody>
     <tr>
         <td>{{pr.id_producto}}</td>
@@ -40,6 +40,9 @@
     {%endfor%}
   
     </table>
+    <div>
+      {%include 'core/paginator.html'%}
+    </div>
 
     <script>
         function contador(){
