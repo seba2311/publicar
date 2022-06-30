@@ -30,7 +30,24 @@ def quienesSomos (request):
 
 
 def tienda(request):
-    return render(request,'core/tienda.html')
+    usuario=Usuario.objects.all()
+    producto = Producto.objects.all()
+    datos ={
+        'form':ProductoForm(),
+        'productos':producto,
+        'usuarios':usuario
+
+    }
+    if request.method=="POST":
+        formulario=ProductoForm(request.POST, files=request.FILES)
+        
+        if formulario.is_valid:
+            formulario.save()
+            messages.success(request,"Agregado correctamente")
+        else:
+            datos["form"]=formulario
+
+    return render(request,'core/tienda.html',datos)
 
 def iniciarSesion(request, id):
     usuario=Usuario.objects.get(id_usuario=id)
@@ -65,15 +82,15 @@ def carrito(request):
     producto = Producto.objects.all()
     page = request.GET.get('page',1)
 
-    try:
-        paginator=Paginator(producto, 3)
-        producto=paginator.page(page)
-    except:
-        raise Http404
+    ##try:
+        ##paginator=Paginator(producto, 3)
+        ##producto=paginator.page(page)
+    #except:
+     #   raise Http404
 
     datos={
         'entity':producto,
-        'paginator':paginator
+       ## 'paginator':paginator
     }
     return render(request,'core/carrito.html',datos)
 

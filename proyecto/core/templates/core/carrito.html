@@ -29,28 +29,43 @@
         <td>{{pr.categoria}}</td>
         {%if pr.imagen%}
         <td><img src="{{pr.imagen.url}}" alt="" width="300" height="300"></td>
+        {%endif%}
         <td>
           <a href="{%url 'modificar_producto' pr.id_producto%}" class="btn btn-info btn-sm">Modificar</a>
           <a href="{%url 'eliminar_producto' pr.id_producto%}" class="btn btn-danger btn-sm">Eliminar</a>
+          <button class="btn btn-info btn-sm" id="agregar" onclick="getTotal({{pr.precio}})">Agregar</button>
         </td>
-        {%endif%}
+        
     </tr>
  
   </tbody>
     {%endfor%}
-  
+
     </table>
+    <input type="text" id="total" value="0" readonly>Total
+    <!--<input type="text" id="nombres" value="0" readonly>-->
+    
+    
+    <script>
+      var mostrar=document.getElementById("total")
+      //var detalle=document.getElementById("nombres")
+      var totalSuma=0;
+      
+      function getTotal(precio){
+        totalSuma=totalSuma+precio
+        mostrar.value=totalSuma
+        //detalle.value=nombre
+        console.log(mostrar.value)
+        //console.log(detalle.value)
+      }
+      
+    </script>
+    <!--
     <div>
       {%include 'core/paginator.html'%}
     </div>
-
-    <script>
-        function contador(){
-            var contar=0;
-            var precio=document.getElementById("precio").value;
-            document.getElementById("mostrar").innerHTML="hola"+precio+(contar+1);
-        }
-    </script>
+    -->
+   
 
 
 
