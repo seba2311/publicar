@@ -33,7 +33,7 @@
         <td>
           <a href="{%url 'modificar_producto' pr.id_producto%}" class="btn btn-info btn-sm">Modificar</a>
           <a href="{%url 'eliminar_producto' pr.id_producto%}" class="btn btn-danger btn-sm">Eliminar</a>
-          <button class="btn btn-info btn-sm" id="agregar" onclick="getTotal({{pr.precio}})">Agregar</button>
+         <!-- <button class="btn btn-info btn-sm" id="agregar" onclick="getTotal({{pr.precio}})">Agregar</button>-->
         </td>
         
     </tr>
@@ -42,7 +42,7 @@
     {%endfor%}
 
     </table>
-    <input type="text" id="total" value="0" readonly>Total
+    <!--<input type="text" id="total" value="0" readonly>Total-->
     <!--<input type="text" id="nombres" value="0" readonly>-->
     
     
